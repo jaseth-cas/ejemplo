@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Desarrollo de Contenidos - Blog sobre Buses y Tarjetas de Expansión</title>
+    <link rel="stylesheet" href="estiloBlog.css">
+</head>
+
+<body>
+    <header>
+        <h1>Arquitectura de Computadores: Buses y Tarjetas de Expansión</h1>
+        <p>Blog educativo para desarrolladores</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Introducción</a>
+        <a href="objetivos.html">Objetivos</a>
+        <a href="contenido.html">Contenido</a>
+        <a href="estudiodecaso.html">Caso</a>
+        <a href="reflexionyconclusion.html">Reflexión</a>
+        <a href="bibliografia.html">Bibliografía</a>
+    </nav>
+
+    <div class="container">
+        <h2>Desarrollo del Contenido</h2>
+
+        <h3>1. ¿Qué son los buses del sistema?</h3>
+        <p>
+            Los <strong>buses del sistema</strong> son canales de comunicación que facilitan la transferencia de datos entre los distintos componentes de una computadora, como el procesador, la memoria y los periféricos. Son fundamentales para coordinar el flujo de información dentro del sistema.
+        </p>
+
+        <h4>Tipos de buses del sistema</h4>
+        <table>
+            <tr>
+                <th>Tipo de Bus</th>
+                <th>Función</th>
+                <th>Ejemplo</th>
+            </tr>
+            <tr>
+                <td><strong>Bus de datos</strong></td>
+                <td>Transporta los datos entre la CPU, la memoria y los dispositivos externos.</td>
+                <td>Lectura de una instrucción desde la memoria RAM a la CPU.</td>
+            </tr>
+            <tr>
+                <td><strong>Bus de direcciones</strong></td>
+                <td>Indica la ubicación de la memoria o dispositivo desde o hacia donde se debe transferir la información.</td>
+                <td>Acceso a una dirección específica en memoria.</td>
+            </tr>
+            <tr>
+                <td><strong>Bus de control</strong></td>
+                <td>Envía señales de control y sincronización entre los componentes.</td>
+                <td>Señales READ o WRITE entre CPU y RAM.</td>
+            </tr>
+        </table>
+
+        <h3>2. Tarjetas de Expansión</h3>
+        <p>
+            Las tarjetas de expansión son componentes adicionales que se conectan a la placa base mediante interfaces como <strong>PCI Express (PCIe)</strong>, con la finalidad de agregar o mejorar funciones del sistema.
+        </p>
+        <p>
+            Algunas tarjetas de expansión comunes incluyen:
+        </p>
+        <ul>
+            <li>Tarjetas gráficas (GPU)</li>
+            <li>Tarjetas de red</li>
+            <li>Tarjetas de sonido</li>
+            <li>Controladoras SSD NVMe</li>
+            <li>Tarjetas de captura de video</li>
+        </ul>
+
+        <h4>Relación entre las tarjetas de expansión y los buses</h4>
+        <p>
+            La comunicación entre la tarjeta y el sistema depende del bus en el cual está instalada. Por ejemplo, una GPU moderna utiliza el bus PCIe x16 para aprovechar su máxima velocidad de transferencia. Si este bus es antiguo o insuficiente, la tarjeta no podrá operar en su máximo rendimiento.
+        </p>
+
+        <h3>3. Impacto en el desarrollo de software</h3>
+        <p>
+            El software necesita comunicarse con el hardware a través de la arquitectura del sistema. Para esto, se utilizan controladores (drivers), APIs o SDKs específicos provistos por el fabricante. Un desconocimiento sobre los buses o la compatibilidad del hardware puede generar:
+        </p>
+        <ul>
+            <li>Limitaciones de rendimiento (cuellos de botella)</li>
+            <li>Errores o fallos al ejecutar el software</li>
+            <li>Incompatibilidad entre el sistema operativo y el hardware</li>
+            <li>Pérdida de acceso a características avanzadas del hardware.</li>
+        </ul>
+
+        <p>
+           Por ejemplo, una aplicación que requiere aceleración por hardware mediante GPU, debe usar interfaces como <strong>DirectX, OpenGL, Vulkan o CUDA</strong> que interactúan directamente con la tarjeta de expansión usando el bus PCIe. Si el sistema tiene un bus PCIe de versión antigua o insuficiente, el rendimiento del software será deficiente.
+        </p>
+
+        <h3>4. Ejemplo visual de comunicación</h3>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Pci-ev2.jpg/500px-Pci-ev2.jpg" alt="Diagrama de PCI Express">
+
+        <p><em>Diagrama representativo de un bus PCI Express para tarjetas de expansión (fuente: Wikimedia Commons)</em></p>
+
+    </div>
+
+    <footer>
+        © 2025 - Proyecto académico | Estudiante
+    </footer>
+</body>
+</html>

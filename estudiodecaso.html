@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Estudio de Caso - Blog sobre Buses y Tarjetas de Expansión</title>
+    <link rel="stylesheet" href="estiloBlog.css">
+</head>
+
+<body>
+    <header>
+        <h1>Arquitectura de Computadores: Buses y Tarjetas de Expansión</h1>
+        <p>Blog educativo para desarrolladores</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Introducción</a>
+        <a href="objetivos.html">Objetivos</a>
+        <a href="contenido.html">Contenido</a>
+        <a href="estudiodecaso.html">Caso</a>
+        <a href="reflexionyconclusion.html">Reflexión</a>
+        <a href="bibliografia.html">Bibliografía</a>
+    </nav>
+
+    <div class="container">
+        <h2>Estudio de Caso: Compatibilidad entre tarjeta gráfica y bus PCIe</h2>
+
+        <h3>Descripción del Problema</h3>
+        <p>
+            Una empresa de desarrollo de software instala una <strong>tarjeta gráfica dedicada</strong> en su estación de trabajo para mejorar el renderizado de una aplicación 3D. Sin embargo, el software sigue utilizando la CPU en lugar de la GPU para procesar gráficos debido a problemas de compatibilidad con el bus <strong>PCI Express (PCIe)</strong>.
+        </p>
+
+        <h3>Relación entre la tarjeta de expansión, el bus del sistema y el software</h3>
+
+        <h4>1. Tarjeta de Expansión (Tarjeta gráfica dedicada)</h4>
+        <p>
+            La GPU está diseñada para tareas de renderizado intensivo y procesamiento paralelo. Se conecta a la placa base mediante una ranura PCIe, que debe estar configurada para operar a máxima velocidad (ej. PCIe x16).
+        </p>
+
+        <!-- Inserta aquí imagen 1 -->
+        <img src="https://cdn.shopify.com/s/files/1/0329/9865/3996/t/5/assets/pcie_plugged_into_graphics_card-qItyH9.True?v=1707776256" alt="Tarjeta gráfica en ranura PCIe" style="max-width:100%; border-radius: 8px;">
+        <p><em>Figura 1. Ejemplo de tarjeta gráfica conectada en ranura PCIe.</em></p>
+
+        <h4>2. Bus del Sistema (PCIe)</h4>
+        <p>
+            El bus PCIe actúa como el canal de comunicación entre la tarjeta gráfica y el resto del sistema. Su velocidad se mide en generaciones (PCIe 2.0, 3.0, 4.0, etc.) y líneas (x1, x4, x16). Si la placa base no soporta la misma generación que la GPU (por ejemplo, GPU PCIe 4.0 en placa PCIe 2.0), la comunicación se degrada y el rendimiento se ve afectado.
+        </p>
+
+        <h4>3. Software (Sistema operativo y aplicación 3D)</h4>
+        <p>
+            Para aprovechar la aceleración de hardware, tanto el sistema operativo como el software deben reconocer la GPU conectada y usar APIs como <strong>DirectX 12</strong>, <strong>OpenGL 4.x</strong> o <strong>Vulkan</strong>. Si el software no está configurado para utilizar estas APIs o los controladores están desactualizados, la aplicación utilizará renderizado por CPU.
+        </p>
+
+        <h3>Causas Comunes del Problema</h3>
+        <ul>
+            <li>Incompatibilidad de versiones PCIe (por ejemplo, tarjeta PCIe 4.0 en placa PCIe 2.0).</li>
+            <li>Drivers incorrectos o desactualizados.</li>
+            <li>Software que no soporta aceleración por hardware.</li>
+            <li>Configuración incorrecta en BIOS o sistema operativo.</li>
+        </ul>
+
+        <h3>Soluciones Técnicas</h3>
+        <ul>
+            <li>Actualizar los controladores (drivers) de la GPU desde NVIDIA o AMD.</li>
+            <li>Actualizar la BIOS/UEFI y verificar que el puerto PCIe esté funcionando a x16.</li>
+            <li>Configurar el sistema operativo y el software para usar la GPU como dispositivo principal.</li>
+            <li>Usar software con APIs gráficas modernas (DirectX 12, Vulkan) y configurarlo para habilitar la aceleración por hardware.</li>
+            <li>Verificar físicamente la compatibilidad entre la placa base y la GPU.</li>
+        </ul>
+
+        <h3>Recomendaciones Generales</h3>
+        <ul>
+            <li>Consultar la documentación del fabricante para verificar compatibilidad entre hardware y software.</li>
+            <li>Considerar una actualización de la placa base si el bus PCIe es muy antiguo.</li>
+            <li>Usar herramientas como <strong>GPU-Z</strong> o <strong>dxdiag</strong> para diagnosticar problemas de conexión.</li>
+        </ul>
+
+        <h3>Conclusión del Caso</h3>
+        <p>
+            Este caso demuestra que para que una aplicación aproveche la aceleración por hardware, debe existir compatibilidad entre la tarjeta de expansión, el bus PCIe y el software. La falta de sincronización entre estos elementos puede impedir el uso de la GPU, afectando el rendimiento. Por ello, un desarrollador debe conocer la arquitectura del sistema para tomar decisiones efectivas en el diseño y optimización de software.
+        </p>
+    </div>
+
+    <footer>
+        © 2025 - Proyecto académico | Estudiante
+    </footer>
+</body>
+</html>
